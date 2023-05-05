@@ -1,0 +1,7 @@
+extends layouts/layout.pug
+
+block content
+    h2(class='page-header') Recently Added
+    - books = books
+    - locals.large = true
+    include partials/bookGrid

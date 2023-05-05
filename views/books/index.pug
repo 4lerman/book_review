@@ -1,0 +1,22 @@
+extends ../layouts/layout.pug
+
+block content
+    h2(class='page-header') Search Books
+    form(action='/books' method='GET')
+        div(class='form-row')
+            div(class='form-item')
+                label Title
+                input(type='text' name='title' value=searchOptions.title)
+        div(class='form-row')
+            div(class='form-item')
+                label Published After
+                input(type='date' name='publishedAfter' value=searchOptions.publishedAfter)
+            div(class='form-item')
+                label Published Before
+                input(type='date' name='publishedBefore' value=searchOptions.publishedBefore)
+        div(class='form-row form-row-end')
+            button(class='btn btn-primary' type='submit') Search
+        div
+            - books = books
+            - locals.large = true
+            include ../partials/bookGrid

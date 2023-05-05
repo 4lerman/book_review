@@ -1,0 +1,22 @@
+extends ../layouts/layout.pug
+
+block content
+    h2(class='page-header')=book.title
+    div(class='book-details')
+        div
+            img(height='150' width='100' src=book.coverImagePath)
+            div(class='btn-details-btn-grid')
+                a(class='btn btn-primary' href=`/books/${book.id}/edit`) Edit
+                - url = `/books/${book.id}`
+                include ../partials/deleteForm
+                a(class='btn btn-primary book-details-author-button' href=`/authors/${book.author.id}`) View Author
+        div(class='book-details-grid')
+            div(class='book-details-label') Author: 
+            div=book.author.name
+            div(class='book-details-label') Publish Date:
+            div=book.publishDate.toDateString()
+            div(class='book-details-label') Page Count:
+            div=book.pageCount
+            div(class='book-details-label') Description:
+            div=book.description
+                

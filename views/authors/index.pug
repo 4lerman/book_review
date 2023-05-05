@@ -1,0 +1,20 @@
+extends ../layouts/layout.pug
+
+block content
+    h2(class='page-header') Search Authors
+    form(action='/authors' method='GET')
+        div(class='form-row')
+            div(class='form-item')
+                label Name
+                input(type='text' name='name' value=searchOptions.name)
+        div(class='form-row form-row-end')
+            button(class='btn btn-primary' type='submit') Search
+    br
+    each author in authors
+        div(class='author-row')
+            div(class='author-name')=author.name
+            div(class='btn-row')
+                a(class='btn btn-primary' href=`/authors/${author.id}`) View
+                a(class='btn btn-primary' href=`/authors/${author.id}/edit`) Edit
+                - url = `/authors/${author.id}`
+                include ../partials/deleteForm 

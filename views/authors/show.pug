@@ -1,0 +1,12 @@
+extends ../layouts/layout.pug
+
+block content
+    h2(class='page-header')=author.name
+    div(class='btn-row')
+        a(class='btn btn-primary' href=`/authors/${author.id}/edit`) Edit
+        - url = `/authors/${author.id}`
+        include ../partials/deleteForm
+    if(booksByAuthor.length > 0)
+        h2(class='page-header') Books By Author
+        - books = booksByAuthor
+        include ../partials/bookGrid

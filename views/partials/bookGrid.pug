@@ -1,0 +1,7 @@
+- var bookCoverClass = locals.large ? 'book-cover-large' : ''
+- var bookGridClass = locals.large ? 'book-grid-large' : ''
+
+div(class=`book-grid ${bookGridClass}`)
+    each book in books
+        a(href=`/books/${book.id}`)
+            img(class=`book-cover ${bookCoverClass}` src=book.coverImagePath)
